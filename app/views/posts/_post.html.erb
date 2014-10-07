@@ -1,0 +1,9 @@
+<div>
+  <h2><%= link_to post.title, post %></h2>
+  <p><%= post.body %></p>
+  <p>
+    <small>
+      <%= post.created_at.to_s(:long) %>
+    </small>
+  </p>
+</div>

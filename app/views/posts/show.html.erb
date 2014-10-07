@@ -7,9 +7,9 @@
     <span class="glyphicon glyphicon-pencil"></span>
     Edit
   <% end %>
-  <h1><%= @post.title %></h1>
+  <h1>Post</h1>
 </div>
 
-<%= @post.body %>
+<%= render @post %>
 
 <%= link_to 'Delete', @post, method: :delete, class: 'delete-btn text-muted', data: { confirm: 'Are you sure?' } %>

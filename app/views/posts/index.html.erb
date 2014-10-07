@@ -6,14 +6,4 @@
   <h1>Posts</h1>
 </div>
 
-<% for post in @posts %>
-  <div>
-    <h2><%= link_to post.title, post %></h2>
-    <p><%= post.body %></p>
-    <p>
-      <small>
-        <%= post.created_at.to_s(:long) %>
-      </small>
-    </p>
-  </div>
-<% end %>
+<%= render @posts %>
