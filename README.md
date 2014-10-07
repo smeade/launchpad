@@ -7,6 +7,7 @@ A starter, demonstration and reference application which does almost nothing use
 
 * Rails 4.1.x w/ JQuery, Coffeescript, Sass, ERB, Turbolinks
 * Bootstrap front-end framework
+* Annotated models
 
 **TODO:**
 
@@ -35,7 +36,6 @@ Consider implementing support for:
 * Error tracking (rollbar, honeybadger)
 * SweetAlert (http://tristanedwards.me/sweetalert)
 * Better Errors
-* Annotate
 * Flutie
 * FriendlyId
 * Other?
@@ -95,6 +95,10 @@ Getting Started
 Notes
 -----
 
+### Annotate
+
+    annotate -p after
+
 ### Bootstrap
 
 * Installed via the bootstrap generators gem.
@@ -103,8 +107,6 @@ Notes
   * created templates in lib/templates
   * created stylesheets
 * config.generators block required in application.rb
-* see https://github.com/decioferreira/bootstrap-generators
-
 * Use @import instead of *=require_
   * Rename application.css to application.css.scss
   * @import scss files, in proper order
