@@ -6,13 +6,13 @@ A starter, demonstration and reference application which does almost nothing use
 **Implemented:**
 
 * Rails 4.1.x w/ JQuery, Coffeescript, Sass, ERB, Turbolinks
+* Bootstrap front-end framework
 
 **TODO:**
 
 Consider implementing support for:
 
 * Test Unit and FactoryGirl for testing
-* Bootstrap front-end framework
 * Heroku deployment
 * Postgres database
 * Database initialization via seeds.rb
@@ -54,13 +54,11 @@ Getting Started
   * In `config/initializers/session_store.rb`: replace `launchpad` with `your_app_name`
   * In `layouts/application.html.erb`: replace `Launchpad` with `Your App Name`
 
-3. Install new secret:
-
-  * generate secure secret keys
+3. Generate and install new secret:
 
         rake secret
 
-  * update `config\secrets.yml` with your own generated secret
+  * update `config\secrets.yml` with this newly generated secret
 
 3. Install gems:
 
@@ -95,6 +93,20 @@ Getting Started
 
 Notes
 -----
+
+### Bootstrap
+
+* Installed via the bootstrap generators gem.
+* one-time run of "rails generate bootstrap:install -f"
+  * updated layouts/application.html.erb
+  * created templates in lib/templates
+  * created stylesheets
+* config.generators block required in application.rb
+* see https://github.com/decioferreira/bootstrap-generators
+
+* Use @import instead of *=require_
+  * Rename application.css to application.css.scss
+  * @import scss files, in proper order
 
 
 License
