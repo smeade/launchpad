@@ -40,17 +40,37 @@ Consider implementing support for:
 * Other?
 
 
-## Getting Started
+Getting Started
+---------------
+1. Clone the project:
 
-1. Install gems:
+        git clone git@github.com:smeade/launchpad.git your_app_name
+        cd your_app_name
+
+2. Rename the project:
+
+  * In `config/application.rb`: replace `Launchpad` with `YourAppName`
+  * In `config/database.yml`: replace `launchpad` with `your_app_name`
+  * In `config/initializers/session_store.rb`: replace `launchpad` with `your_app_name`
+  * In `layouts/application.html.erb`: replace `Launchpad` with `Your App Name`
+
+3. Install new secret:
+
+  * generate secure secret keys
+
+        rake secret
+
+  * update `config\secrets.yml` with your own generated secret
+
+3. Install gems:
 
         bundle install
 
-2. Create and migrate the database:
+4. Create and migrate the database:
 
         rake db:create db:migrate
 
-3. Start the web server:
+5. Start the web server:
 
         rails server
 
@@ -72,6 +92,11 @@ Consider implementing support for:
 
 * ...
 
-## License
 
+Notes
+-----
+
+
+License
+-------
 This project is released under the [MIT License](http://www.opensource.org/licenses/MIT).
