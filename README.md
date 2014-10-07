@@ -38,6 +38,8 @@ Consider implementing support for:
 * Better Errors
 * Flutie
 * FriendlyId
+* Pagination
+* Markdown/Text editing
 * Other?
 
 
