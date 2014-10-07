@@ -30,6 +30,10 @@ gem 'spring',        group: :development
 # Use bootstrap-generators to generate Bootstrap-ready Rails scaffold view templates
 gem 'bootstrap-generators', '~> 3.1.1'
 
+group :development do
+  gem 'annotate'
+end
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

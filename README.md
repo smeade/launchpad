@@ -33,6 +33,7 @@ Consider implementing support for:
 * Variants for mobile view support
 * Visitor Analytics (Google, NewRelic)
 * Error tracking (rollbar, honeybadger)
+* SweetAlert (http://tristanedwards.me/sweetalert)
 * Better Errors
 * Annotate
 * Flutie
