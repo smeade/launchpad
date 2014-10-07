@@ -40,6 +40,7 @@ Consider implementing support for:
 * FriendlyId
 * Pagination
 * Markdown/Text editing
+* Procfile
 * Other?
 
 
@@ -110,6 +111,27 @@ Notes
 * Use @import instead of *=require_
   * Rename application.css to application.css.scss
   * @import scss files, in proper order
+
+
+### Deploying to Heroku
+
+1. Install the [Heroku toolbelt](https://devcenter.heroku.com/articles/getting-started-with-rails4#local-workstation-setup) on your local workstation (if not already installed).
+
+2. Create the [Heroku app](https://devcenter.heroku.com/articles/getting-started-with-rails4#deploy-your-application-to-heroku) (if not already created).
+
+        heroku apps:create
+
+3. [Deploy](https://devcenter.heroku.com/articles/git#deploying-code)
+
+        git push heroku master
+
+4. Run migrations (if any new ones)
+
+        heroku run rake db:migrate
+
+5. Visit the deployed app
+
+        heroku open
 
 ### How to Run the Test Suite
 
