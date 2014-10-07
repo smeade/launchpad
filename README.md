@@ -3,17 +3,19 @@ Launchpad
 
 A starter, demonstration and reference application which does almost nothing useful.
 
-Implemented:
+**Implemented:**
 
-TODO:
+* Rails 4.1.x w/ JQuery, Coffeescript, Sass, ERB, Turbolinks
+
+**TODO:**
 
 Consider implementing support for:
 
-* Rails 4.1.x w/ JQuery, Coffeescript, Sass, ERB, Turbolinks
 * Test Unit and FactoryGirl for testing
 * Bootstrap front-end framework
 * Heroku deployment
 * Postgres database
+* Database initialization via seeds.rb
 * Devise for authentication (including guest user pattern)
 * Email delivery (SendGrid, Mandrill)
 * Image and file uploads (Carrierwave, Paperclip, aws-sdk & fog)
@@ -36,3 +38,40 @@ Consider implementing support for:
 * Flutie
 * FriendlyId
 * Other?
+
+
+## Getting Started
+
+1. Install gems:
+
+        bundle install
+
+2. Create and migrate the database:
+
+        rake db:create db:migrate
+
+3. Start the web server:
+
+        rails server
+
+## TBD
+
+* Ruby version
+
+* System dependencies
+
+* Configuration
+
+* Database initialization
+
+* How to run the test suite
+
+* Services (job queues, cache servers, search engines, etc.)
+
+* Deployment instructions
+
+* ...
+
+## License
+
+This project is released under the [MIT License](http://www.opensource.org/licenses/MIT).
