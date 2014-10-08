@@ -102,6 +102,23 @@ Getting Started
 
         heroku open
 
+### Heroku Notes
+
+* The [rails_12factor gem](https://github.com/heroku/rails_12factor) is [required](https://devcenter.heroku.com/articles/getting-started-with-rails4#heroku-gems).
+* Heroku provides you a PostgreSQL database so use PostgreSQL locally to maintain parity between local development and the deployed app.
+* If an app fails to start, attempting to start a console will give more detail than is found in the app logs.
+* Logging and console:
+
+        $ heroku logs -t
+        $ heroku run console
+
+* Deploying:
+
+        $ git push heroku master
+        $ heroku run rake db:migrate
+        $ heroku open
+
+
 ## TBD
 
 * Ruby version
@@ -119,8 +136,8 @@ Getting Started
 * ...
 
 
-Notes
------
+Additional Notes and Background
+-------------------------------
 
 ### Annotate
 
@@ -143,6 +160,7 @@ To get Bootstrap fonts working with the Asset pipeline:
         config.assets.compile = true
 
 ### Bootstrap Generators
+
 * Bootstrap Generators installs its templates under lib/templates
 * You can go and customize them.
 * One-time run of "rails generate bootstrap:install -f"
@@ -151,22 +169,6 @@ To get Bootstrap fonts working with the Asset pipeline:
   * created stylesheets
 * The config.generators block seems to be required in application.rb
 
-### Heroku
-
-* The [rails_12factor gem](https://github.com/heroku/rails_12factor) is [required](https://devcenter.heroku.com/articles/getting-started-with-rails4#heroku-gems).
-* Heroku provides you a PostgreSQL database.
-* Use PostgreSQL locally to maintain parity between local development and the deployed app.
-* If an app fails to start, attempting to start a console will give more detail than is found in the app logs.
-
-Logging and console:
-
-    $ heroku logs -t
-    $ heroku run console
-
-Deploying:
-
-    $ git push heroku master
-    $ heroku run rake db:migrate
 
 ### Tests
 
