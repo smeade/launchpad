@@ -17,7 +17,9 @@ A starter, demonstration and reference application which does almost nothing use
 Consider implementing support for:
 
 * Test Unit and FactoryGirl for testing
-* Devise for authentication (including guest user pattern)
+* Devise for authentication
+* Guest user pattern
+* Bootstrap themes support
 * Email delivery (SendGrid, Mandrill)
 * Image and file uploads (Carrierwave, Paperclip, aws-sdk & fog)
 * User avatars (gravatar_image_tag & gravatar-ultimate)
@@ -41,6 +43,7 @@ Consider implementing support for:
 * Pagination
 * Markdown/Text editing
 * Procfile
+* Customize color scheme by Account
 * Other?
 
 
@@ -124,16 +127,29 @@ Notes
     annotate -p after
 
 ### Bootstrap
-
-* Installed via the bootstrap generators gem.
-* one-time run of "rails generate bootstrap:install -f"
-  * updated layouts/application.html.erb
-  * created templates in lib/templates
-  * created stylesheets
-* config.generators block required in application.rb
+* Drop in or edit app/assets/stylesheets/bootstrap.css.scss to change theme.
 * Use @import instead of *=require_
   * Rename application.css to application.css.scss
   * @import scss files, in proper order
+
+### Bootstrap Glyphicons/Icons
+
+To get Bootstrap fonts working with the Asset pipeline:
+
+* Added Bootstrap font files to vendor/assets/fonts/
+* Use `font-url` helper in the font-url block in base.css.scss
+* In config/environments/production.rb:
+
+        config.assets.compile = true
+
+### Bootstrap Generators
+* Bootstrap Generators installs its templates under lib/templates
+* You can go and customize them.
+* One-time run of "rails generate bootstrap:install -f"
+  * updated layouts/application.html.erb
+  * created templates in lib/templates
+  * created stylesheets
+* The config.generators block seems to be required in application.rb
 
 ### Heroku
 

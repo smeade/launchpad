@@ -31,7 +31,12 @@ gem 'spring',        group: :development
 gem 'bootstrap-generators', '~> 3.1.1'
 
 group :development do
+  # Annotate models
+  # annotate -p after
   gem 'annotate'
+
+  # Prune log output
+  gem 'quiet_assets'
 end
 
 group :production do
