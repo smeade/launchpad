@@ -3,20 +3,20 @@ Launchpad
 
 A starter, demonstration and reference application which does almost nothing useful.
 
-**Support for:**
+**Done:**
 
 * Rails 4.1.x w/ JQuery, Coffeescript, Sass, ERB, Turbolinks
 * Postgres database
 * Bootstrap front-end framework
 * Annotated models
 * Heroku deployment
+* Database initialization via seeds.rb
 
 **TODO:**
 
 Consider implementing support for:
 
 * Test Unit and FactoryGirl for testing
-* Database initialization via seeds.rb
 * Devise for authentication (including guest user pattern)
 * Email delivery (SendGrid, Mandrill)
 * Image and file uploads (Carrierwave, Paperclip, aws-sdk & fog)
@@ -71,9 +71,9 @@ Getting Started
 
         bundle install
 
-4. Create and migrate the database:
+4. Create, migrate and seed the database:
 
-        rake db:create db:migrate
+        rake db:create db:migrate db:seed
 
 5. Start the web server:
 
@@ -81,13 +81,13 @@ Getting Started
 
 ### Deploy to Heroku
 
-1. Install the [Heroku toolbelt](https://devcenter.heroku.com/articles/getting-started-with-rails4#local-workstation-setup) on your local workstation (if not already installed).
+1. Download and install the [Heroku toolbelt](https://devcenter.heroku.com/articles/getting-started-with-rails4#local-workstation-setup)].
 
-2. Create the [Heroku app](https://devcenter.heroku.com/articles/getting-started-with-rails4#deploy-your-application-to-heroku) (if not already created).
+2. Create your [Heroku app](https://devcenter.heroku.com/articles/getting-started-with-rails4#deploy-your-application-to-heroku) (if not already created).
 
         heroku apps:create
 
-3. Deploy. Details are documented by Heroku [here](https://devcenter.heroku.com/articles/git#deploying-code).
+3. Deploy. [details](https://devcenter.heroku.com/articles/git#deploying-code).
 
         git push heroku master
 
