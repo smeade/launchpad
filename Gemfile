@@ -30,6 +30,9 @@ gem 'spring',        group: :development
 # Use bootstrap-generators to generate Bootstrap-ready Rails scaffold view templates
 gem 'bootstrap-generators', '~> 3.1.1'
 
+# Use Devise for authentication
+gem 'devise'
+
 group :development do
   # Annotate models
   # annotate -p after

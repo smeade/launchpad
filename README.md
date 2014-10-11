@@ -144,6 +144,7 @@ Additional Notes and Background
     annotate -p after
 
 ### Bootstrap
+
 * Drop in or edit app/assets/stylesheets/bootstrap.css.scss to change theme.
 * Use @import instead of *=require_
   * Rename application.css to application.css.scss
@@ -169,6 +170,29 @@ To get Bootstrap fonts working with the Asset pipeline:
   * created stylesheets
 * The config.generators block seems to be required in application.rb
 
+### Devise
+
+* Heroku default_url_options
+
+Devise uses the default url options in your environments files for composing relative links in confirmation and password recovery emails. For Heroku, configure and use a MAIL_HOST environment variable.
+
+From the command line:
+
+        heroku config:add MAIL_HOST=[YOUR APP URL]
+
+In `production.rb`:
+
+        config.action_mailer.default_url_options = { host: ENV['MAIL_HOST'] }
+
+* Review `config\initializers\devise.rb` for a variety of configuration options. As with all initializers, restart after modifying.
+
+For example:
+
+        config.password_length = 4..128
+
+* Review `devise.em.yml` (or locale file of your choice) for configurable messaging.
+
+* Read about required [test helpers](https://github.com/plataformatec/devise#test-helpers).
 
 ### Tests
 
