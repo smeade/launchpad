@@ -6,11 +6,12 @@ A starter, demonstration and reference application which does almost nothing use
 **Done:**
 
 * Rails 4.1.x w/ JQuery, Coffeescript, Sass, ERB, Turbolinks
-* Postgres database
-* Bootstrap front-end framework
+* PostgreSQL
+* Bootstrap
 * Annotated models
 * Heroku deployment
 * Database initialization via seeds.rb
+* Bootstrap themes support
 
 **TODO:**
 
@@ -19,7 +20,6 @@ Consider implementing support for:
 * Test Unit and FactoryGirl for testing
 * Devise for authentication
 * Guest user pattern
-* Bootstrap themes support
 * Email delivery (SendGrid, Mandrill)
 * Image and file uploads (Carrierwave, Paperclip, aws-sdk & fog)
 * User avatars (gravatar_image_tag & gravatar-ultimate)

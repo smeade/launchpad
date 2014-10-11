@@ -30,3 +30,25 @@ input[type="radio"], input[type="checkbox"] {
   font-url('glyphicons-halflings-regular.ttf') format('truetype'),
   font-url('glyphicons-halflings-regular.svg#glyphicons-halflingsregular') format('svg');
 }
+
+.container {
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+@media (min-width: 768px) {
+  .container {
+    width: 1020px;
+  }
+}
+@media (min-width: 992px) {
+  .container {
+    width: 1020px;
+  }
+}
+@media (min-width: 1200px) {
+  .container {
+    width: 1020px;
+  }
+}
