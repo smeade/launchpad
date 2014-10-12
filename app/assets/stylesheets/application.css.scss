@@ -12,7 +12,10 @@
  */
 
 @import "bootstrap";
+@import "non_responsive";
 @import "base";
+@import "dataTables/bootstrap/3/jquery.dataTables.bootstrap";
+@import "datatables";
 @import "devise";
 @import "select2";
 @import "select2-bootstrap";

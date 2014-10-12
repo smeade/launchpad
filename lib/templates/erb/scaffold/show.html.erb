@@ -18,4 +18,4 @@
   <%- end -%>
 </dl>
 
-<%%= link_to 'Delete', @<%= singular_table_name %>, method: :delete, data: { confirm: 'Are you sure?' } %>
+<%%= link_to 'Delete', @<%= singular_table_name %>, class: 'delete-btn text-muted', method: :delete, data: { confirm: 'Are you sure?' } %>

@@ -1,0 +1,26 @@
+/*
+ * Make Bootstrap non-responsive/fixed-width.
+ * Remove this file to return to responsive.
+ */
+
+.container {
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+@media (min-width: 768px) {
+  .container {
+    width: 1020px;
+  }
+}
+@media (min-width: 992px) {
+  .container {
+    width: 1020px;
+  }
+}
+@media (min-width: 1200px) {
+  .container {
+    width: 1020px;
+  }
+}
