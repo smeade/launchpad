@@ -18,6 +18,7 @@ This app currently demonstrates:
 * CSV (and Excel) imports
 * Better Errors for a more usefull dev error page
 * Select2 with ajax data source and createSearchChoice
+* DataTables
 
 
 **TODO:**
@@ -177,6 +178,12 @@ To get Bootstrap fonts working with the Asset pipeline:
   * created stylesheets
 * The config.generators block seems to be required in application.rb
 
+### DataTables
+
+* Use [jquery-datatables-rails](https://github.com/rweng/jquery-datatables-rails) gem. This takes care of smoothly getting the css, js, and images into the pipeline.
+* Create a dedicated `datatables/categories_datatable.rb` class to handle the serving of json in a datatable friendly way.
+* See `categories_controller#index` method for use of `CategoriesDatatable` class.
+
 ### Devise
 
 * Heroku default_url_options
@@ -216,6 +223,13 @@ This is a bare-bones Rails app without any business-logic or custom functionalit
 To run the test suite:
 
     $ rake
+
+### TurboLinks
+
+* Remember that with TurboLinks, for JavaScript to load you should not use `$(document).ready`, but use:
+
+        $(document).on "page:change", ->
+
 
 License
 -------

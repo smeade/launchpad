@@ -33,6 +33,12 @@ gem 'bootstrap-generators', '~> 3.1.1'
 # Use Devise for authentication
 gem 'devise'
 
+# Use kaminari for pagination
+gem 'kaminari'
+
+# Integrate DataTables into Rails pipeline
+gem 'jquery-datatables-rails', '~> 2.2.1'
+
 # Use Roo to work with spreadsheets
 gem 'roo'
 

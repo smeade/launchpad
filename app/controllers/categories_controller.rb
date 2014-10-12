@@ -9,7 +9,13 @@ class CategoriesController < ApplicationController
 
     respond_to do |format|
       format.html { }
-      format.json { render :json => @categories.collect {|p| { id: p.name, text: p.name }} }
+      format.json {
+        if params[:q]
+          render :json => @categories.collect {|p| { id: p.name, text: p.name }}
+        else
+          render json: CategoriesDatatable.new(view_context)
+        end
+      }
     end
   end
 

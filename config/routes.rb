@@ -1,8 +1,7 @@
 Rails.application.routes.draw do
 
-  resources :categories
-
   root 'posts#index'
+  resources :categories
   resources :imports
   resources :posts
   devise_for :users
