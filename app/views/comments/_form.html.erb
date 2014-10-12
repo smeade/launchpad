@@ -1,4 +1,4 @@
-<%= form_for(@post.comments.new(), :html => { :class => "form-horizontal" }) do |f| %>
+<%= form_for(@post.comments.new(), remote: true, :html => { :class => "form-horizontal" }) do |f| %>
   <%= f.hidden_field :post_id %>
   <%= f.text_area :body, :class => "form-control" %>
   <br/>

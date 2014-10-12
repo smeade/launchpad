@@ -19,7 +19,7 @@ This app demonstrates:
 * Better Errors for a more usefull dev error page
 * Select2 with ajax data source and createSearchChoice
 * DataTables
-* Comments - non-ajax
+* Working with JavaScript in Rails (via Comments)
 
 
 **TODO:**
@@ -146,6 +146,16 @@ Getting Started
 
 Additional Notes and Background
 -------------------------------
+
+### Ajax
+
+Based on RailsGuides documentation [Working with JavaScript in Rails](http://edgeguides.rubyonrails.org/working_with_javascript_in_rails.html).
+
+See Comment views and controller, specificallY:
+
+* add `remote: true` to comments/_form.html.erb
+* add `format.js {}` to comments#create `respond_to` block
+* add `app/views/comments/create.js.erb`
 
 ### Annotate
 
