@@ -39,8 +39,9 @@
           <% if user_signed_in? %>
             <li><%= link_to 'Sign out', destroy_user_session_path, :method=>'delete' %></li>
           <% else %>
-            <li><%= link_to 'Sign Up', new_user_registration_path %></li>
-            <li><%= link_to 'Sign In', new_user_session_path %></li>
+            <li><%= link_to 'SIGN UP', new_user_registration_path, class: "btn navbar-btn btn-sm btn-success" %></li>
+            <li>&nbsp;</li>
+            <li><%= link_to 'LOG IN', new_user_session_path, class: "btn navbar-btn btn-sm btn-primary" %></li>
           <% end %>
         </ul>
       </div>
