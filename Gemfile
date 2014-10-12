@@ -33,6 +33,9 @@ gem 'bootstrap-generators', '~> 3.1.1'
 # Use Devise for authentication
 gem 'devise'
 
+# Use Roo to work with spreadsheets
+gem 'roo'
+
 group :development do
   # Annotate models
   # annotate -p after

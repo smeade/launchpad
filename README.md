@@ -17,6 +17,7 @@ A starter, demonstration and reference application which does almost nothing use
 
 Consider implementing support for:
 
+* Use FontAwesome instead of Glyphicons
 * Test Unit and FactoryGirl for testing
 * Devise for authentication
 * Guest user pattern

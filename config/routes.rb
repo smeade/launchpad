@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   root 'posts#index'
+  resources :imports
   resources :posts
   devise_for :users
 
