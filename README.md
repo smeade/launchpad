@@ -5,7 +5,7 @@ A bloging app with posts. This is intended as a starter, demonstration and refer
 
 **Done:**
 
-This app currently demonstrates:
+This app demonstrates:
 
 * Rails 4.1.x w/ JQuery, Coffeescript, Sass, ERB, Turbolinks
 * PostgreSQL
@@ -19,13 +19,13 @@ This app currently demonstrates:
 * Better Errors for a more usefull dev error page
 * Select2 with ajax data source and createSearchChoice
 * DataTables
+* Comments - non-ajax
 
 
 **TODO:**
 
 Consider implementing support for:
 
-* Comments
 * Use FontAwesome instead of Glyphicons
 * Test Unit and FactoryGirl for testing
 * Guest user pattern

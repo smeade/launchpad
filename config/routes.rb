@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
   root 'posts#index'
   resources :categories
+  resources :comments
   resources :imports
   resources :posts
   devise_for :users

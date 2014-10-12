@@ -1,0 +1,6 @@
+<%= form_for(@post.comments.new(), :html => { :class => "form-horizontal" }) do |f| %>
+  <%= f.hidden_field :post_id %>
+  <%= f.text_area :body, :class => "form-control" %>
+  <br/>
+  <%= f.submit :class => "btn btn-primary" %>
+<% end %>

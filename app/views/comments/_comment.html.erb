@@ -1,0 +1,9 @@
+<div>
+  <small>
+    <%= comment.created_at.to_s(:long) %>
+    by
+    <%= comment.user.try(:email) %>
+  </small>
+  <p><%= comment.body %></p>
+  <br/>
+</div>
