@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :categories
+
   root 'posts#index'
   resources :imports
   resources :posts

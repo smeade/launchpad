@@ -16,14 +16,6 @@ class ImportsControllerTest < ActionController::TestCase
     assert_response :success
   end
 
-  test "should create import" do
-    assert_difference('Import.count') do
-      post :create, import: { name: @import.name }
-    end
-
-    assert_redirected_to import_path(assigns(:import))
-  end
-
   test "should show import" do
     get :show, id: @import
     assert_response :success

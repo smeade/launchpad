@@ -1,14 +1,12 @@
-require 'test_helper'
+class Category < ActiveRecord::Base
 
-class ImportTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  has_many :posts
+
 end
 
 # == Schema Information
 #
-# Table name: imports
+# Table name: categories
 #
 #  id         :integer          not null, primary key
 #  name       :string(255)

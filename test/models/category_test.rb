@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class ImportTest < ActiveSupport::TestCase
+class CategoryTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end
@@ -8,7 +8,7 @@ end
 
 # == Schema Information
 #
-# Table name: imports
+# Table name: categories
 #
 #  id         :integer          not null, primary key
 #  name       :string(255)

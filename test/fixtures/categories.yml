@@ -1,14 +1,14 @@
-require 'test_helper'
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-class ImportTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
-end
+one:
+  name: MyString
+
+two:
+  name: MyString
 
 # == Schema Information
 #
-# Table name: imports
+# Table name: categories
 #
 #  id         :integer          not null, primary key
 #  name       :string(255)
