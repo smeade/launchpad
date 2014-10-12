@@ -1,9 +1,11 @@
 Launchpad
 =========
 
-A starter, demonstration and reference application which does almost nothing useful.
+A bloging app with posts. This is intended as a starter, demonstration and reference application which does almost nothing useful. Posts are used merely as a way to have something to work with while playing with and learning about generic features used in almost all apps.
 
 **Done:**
+
+This app currently demonstrates:
 
 * Rails 4.1.x w/ JQuery, Coffeescript, Sass, ERB, Turbolinks
 * PostgreSQL
@@ -12,14 +14,17 @@ A starter, demonstration and reference application which does almost nothing use
 * Heroku deployment
 * Database initialization via seeds.rb
 * Bootstrap themes support
+* Devise for authentication
+* CSV (and Excel) imports
+* Better Errors for a more usefull dev error page
 
 **TODO:**
 
 Consider implementing support for:
 
+* Comments
 * Use FontAwesome instead of Glyphicons
 * Test Unit and FactoryGirl for testing
-* Devise for authentication
 * Guest user pattern
 * Email delivery (SendGrid, Mandrill)
 * Image and file uploads (Carrierwave, Paperclip, aws-sdk & fog)
@@ -31,14 +36,13 @@ Consider implementing support for:
 * Searching stuff (algolia)
 * Dismissible, data-driven system announcements
 * Account management (invite users)
-* CSV imports and exports
+* CSV exports
 * RailsAdmin for back-end data management
 * Creating fake data with faker
 * Variants for mobile view support
 * Visitor Analytics (Google, NewRelic)
 * Error tracking (rollbar, honeybadger)
 * SweetAlert (http://tristanedwards.me/sweetalert)
-* Better Errors
 * Flutie
 * FriendlyId
 * Pagination

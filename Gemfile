@@ -41,6 +41,10 @@ group :development do
   # annotate -p after
   gem 'annotate'
 
+  # Replace the standard Rails error page
+  gem "better_errors"
+  gem "binding_of_caller"
+
   # Prune log output
   gem 'quiet_assets'
 end
