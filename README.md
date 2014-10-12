@@ -17,7 +17,7 @@ This app currently demonstrates:
 * Devise for authentication
 * CSV (and Excel) imports
 * Better Errors for a more usefull dev error page
-* Select2
+* Select2 with ajax data source and createSearchChoice
 
 
 **TODO:**
@@ -200,6 +200,14 @@ For example:
 * Review `devise.em.yml` (or locale file of your choice) for configurable messaging.
 
 * Read about required [test helpers](https://github.com/plataformatec/devise#test-helpers).
+
+### Select2
+
+* See the [gem documentation](http://ivaynberg.github.io/select2/).
+* Easily integrated into asset pipeline via [select2-rails](https://github.com/argerim/select2-rails).
+* See posts.js.coffee for implementation details.
+* Note use of createSearchChoice so you can enter new values, not found by the select2 search.
+* The select field is being used to populate a string attribute. The `id` is being set to the string.
 
 ### Tests
 

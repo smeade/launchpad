@@ -4,7 +4,13 @@ class CategoriesController < ApplicationController
   # GET /categories
   # GET /categories.json
   def index
-    @categories = Category.all
+    # To support search (e.g. in select2 auto complete)
+    params[:q] ? @categories = Category.where("name ilike ?", "#{params[:q]}%").limit(20) : @categories = Category.all
+
+    respond_to do |format|
+      format.html { }
+      format.json { render :json => @categories.collect {|p| { id: p.name, text: p.name }} }
+    end
   end
 
   # GET /categories/1

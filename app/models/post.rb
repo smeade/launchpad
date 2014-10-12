@@ -4,6 +4,15 @@ class Post < ActiveRecord::Base
   default_scope  { order(:created_at => :desc) }
   validates :title, presence: true
 
+  def category_name
+    self.category.try(:name)
+  end
+
+  def category_name=(name)
+    self.category = Category.find_or_create_by(name: name)
+    self.save
+  end
+
 end
 
 # == Schema Information

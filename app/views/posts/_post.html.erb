@@ -1,9 +1,7 @@
 <div>
-  <h2><%= link_to post.title, post %></h2>
-  <p><%= post.body %></p>
-  <p>
-    <small>
-      <%= post.created_at.to_s(:long) %>
-    </small>
-  </p>
+  <small><%= post.created_at.to_s(:long) %></small>
+  <small><%= post.category.try(:name) %></small>
+  <h4><%= link_to post.title, post %></h4>
+  <p><%= truncate(post.body, length: 200) %></p>
+  <br/>
 </div>
