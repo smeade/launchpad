@@ -36,6 +36,9 @@ gem 'devise'
 # Use Roo to work with spreadsheets
 gem 'roo'
 
+# Integrate Select2 jQuery plugin into Rails pipeline
+gem 'select2-rails'
+
 group :development do
   # Annotate models
   # annotate -p after

@@ -17,6 +17,8 @@ This app currently demonstrates:
 * Devise for authentication
 * CSV (and Excel) imports
 * Better Errors for a more usefull dev error page
+* Select2
+
 
 **TODO:**
 
