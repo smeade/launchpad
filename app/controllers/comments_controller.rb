@@ -25,12 +25,7 @@ class CommentsController < ApplicationController
   # POST /comments.json
   def create
     @comment = Comment.new(comment_params)
-    if request.remote_ip == '127.0.0.1'
-      ip = '75.70.68.188'
-    else
-      ip = request.remote_ip
-    end
-    @comment.ip_address = ip
+    @comment.ip_address = request.remote_ip
 
     respond_to do |format|
       if @comment.save

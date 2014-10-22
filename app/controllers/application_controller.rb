@@ -2,14 +2,17 @@ class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
-  before_filter :check_browser
+  before_filter :check_browser, if: :browser_check_enabled?
 
   force_ssl if: :ssl_configured? #, host:'www.sitewithvalidsslcert.com'
 
   def ssl_configured?
-    !Rails.env.development?
+    !Rails.env.development? && !Rails.env.test?
   end
 
+  def browser_check_enabled?
+    !Rails.env.development? && !Rails.env.test?
+  end
 
   private
 
