@@ -22,6 +22,7 @@ This app demonstrates:
 * Working with JavaScript in Rails (via Comments)
 * Geocoding with the geocoding gem
 * Sign in with GitHub (via OmniAuth)
+* Exception notifications via email
 
 **TODO:**
 
@@ -218,6 +219,16 @@ For example:
 * Review `devise.em.yml` (or locale file of your choice) for configurable messaging.
 
 * Read about required [test helpers](https://github.com/plataformatec/devise#test-helpers).
+
+### Exception Notification
+
+This [gem](https://github.com/smartinez87/exception_notification) provides notifications when errors occur.
+
+1. Add to Gemfile
+
+        gem 'exception_notification'
+
+2. Configure to use `config.middleware.use ExceptionNotifier`. See `development.rb` and `production.rb`.
 
 ### Geocoder
 

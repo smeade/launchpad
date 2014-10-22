@@ -16,6 +16,9 @@ Rails.application.configure do
   # Don't care if the mailer can't send.
   config.action_mailer.raise_delivery_errors = false
 
+  # Set up for exception notification testing
+  config.action_mailer.delivery_method = :letter_opener
+
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
 
@@ -37,4 +40,12 @@ Rails.application.configure do
 
   # Set up the default URL options for the Devise mailer
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+
+  # Configure for Exception Notifications
+  config.middleware.use ExceptionNotification::Rack,
+    :email => {
+      :email_prefix => "[Launchpad] ",
+      :sender_address => %{"notifier" <notifier@example.com>},
+      :exception_recipients => %w{scott@synapsoftware.com}
+    }
 end

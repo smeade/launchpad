@@ -33,6 +33,9 @@ gem 'bootstrap-generators', '~> 3.1.1'
 # Use Devise for authentication
 gem 'devise'
 
+# Use Exception Notification to send exceptions by email
+gem 'exception_notification'
+
 # Use goecoder to find location by ip address
 gem 'geocoder'
 
@@ -59,6 +62,9 @@ group :development do
   # Replace the standard Rails error page
   gem "better_errors"
   gem "binding_of_caller"
+
+  # Show emails in browser
+  gem 'letter_opener'
 
   # Prune log output
   gem 'quiet_assets'

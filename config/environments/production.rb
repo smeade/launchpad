@@ -78,4 +78,12 @@ Rails.application.configure do
 
   # For Heroku, configure and use a MAIL_HOST environment variable.
   config.action_mailer.default_url_options = { host: ENV['MAIL_HOST'] }
+
+  # Configure for Exception Notifications
+  config.middleware.use ExceptionNotification::Rack,
+    :email => {
+      :email_prefix => "[Launchpad] ",
+      :sender_address => %{"notifier" <notifier@example.com>},
+      :exception_recipients => %w{scott@synapsoftware.com}
+    }
 end
