@@ -3,6 +3,8 @@
     <%= comment.created_at.to_s(:long) %>
     by
     <%= comment.user.try(:email) %>
+    at
+    <%= comment.try(:region_name) %>
   </small>
   <span class="btn btn-default btn-sm edit-comment glyphicon glyphicon-pencil pull-right"  style='display: none;'></span>
   <p class='comment-body'>

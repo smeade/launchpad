@@ -20,7 +20,7 @@ This app demonstrates:
 * Select2 with ajax data source and createSearchChoice
 * DataTables
 * Working with JavaScript in Rails (via Comments)
-
+* Geocoding with the geocoding gem
 
 **TODO:**
 
@@ -217,6 +217,29 @@ For example:
 * Review `devise.em.yml` (or locale file of your choice) for configurable messaging.
 
 * Read about required [test helpers](https://github.com/plataformatec/devise#test-helpers).
+
+### Geocoder Notes
+
+* Geocoder is a complete geocoding solution for Ruby. With Rails it adds geocoding (by street or IP address), reverse geocoding (find street address based on given coordinates), and distance queries.
+
+1. Add `latitude` and `longitude` columns to Model
+
+        rails generate migration AddLatitudeAndLongitudeToModel latitude:float longitude:float
+        rake db:migrate
+
+2. Tell Geocoder which method returns your object's geocodable address:
+
+        geocoded_by :full_street_address   # can also be an IP address
+        after_validation :geocode          # auto-fetch coordinates
+
+3. For reverse geocoding, tell Geocoder which attributes store latitude and longitude:
+
+        reverse_geocoded_by :latitude, :longitude
+        after_validation :reverse_geocode  # auto-fetch address
+
+4. Find address by IP:
+
+        Geocoder.search('75.70.68.188').first.data["region_name"]
 
 ### Select2
 

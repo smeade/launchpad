@@ -33,11 +33,17 @@ gem 'bootstrap-generators', '~> 3.1.1'
 # Use Devise for authentication
 gem 'devise'
 
+# Use goecoder to find location by ip address
+gem 'geocoder'
+
 # Use kaminari for pagination
 gem 'kaminari'
 
 # Integrate DataTables into Rails pipeline
 gem 'jquery-datatables-rails', '~> 2.2.1'
+
+# Use Omniauth for login via github
+gem 'omniauth-github'
 
 # Use Roo to work with spreadsheets
 gem 'roo'
