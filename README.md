@@ -24,6 +24,7 @@ This app demonstrates:
 * Sign in with GitHub (via OmniAuth)
 * Exception notifications via email
 * Forcing SSL over entire site
+* byebug for debugging
 
 **TODO:**
 
@@ -163,6 +164,10 @@ See Comment views and controller, specificallY:
 ### Annotate
 
     annotate -p after
+
+### Byebug
+
+[byebug](https://github.com/deivid-rodriguez/byebug) for debugging.
 
 ### Bootstrap
 

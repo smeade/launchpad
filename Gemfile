@@ -54,6 +54,10 @@ gem 'roo'
 # Integrate Select2 jQuery plugin into Rails pipeline
 gem 'select2-rails'
 
+group :production do
+  gem 'rails_12factor'
+end
+
 group :development do
   # Annotate models
   # annotate -p after
@@ -70,8 +74,8 @@ group :development do
   gem 'quiet_assets'
 end
 
-group :production do
-  gem 'rails_12factor'
+group :development, :test do
+  gem 'byebug'
 end
 
 # Use ActiveModel has_secure_password
