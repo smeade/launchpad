@@ -2,6 +2,12 @@ source 'https://rubygems.org'
 
 ruby '2.1.3'
 
+
+
+# --------------------------------------------------------------------
+# Vanilla Rails gems
+# These come from initial Rails project creation
+# --------------------------------------------------------------------
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.6'
 # Use postgresql as the database for Active Record
@@ -27,6 +33,24 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
 gem 'spring',        group: :development
 
+# Use ActiveModel has_secure_password
+# gem 'bcrypt', '~> 3.1.7'
+
+# Use unicorn as the app server
+# gem 'unicorn'
+
+# Use Capistrano for deployment
+# gem 'capistrano-rails', group: :development
+
+# Use debugger
+# gem 'debugger', group: [:development, :test]
+
+
+
+# --------------------------------------------------------------------
+# Added gems
+# These, I added to this project
+# --------------------------------------------------------------------
 # Use Bootstrap as the HTML, CSS, and JS framework
 # Use bootstrap-generators to generate Bootstrap-ready Rails scaffold view templates
 gem 'bootstrap-generators', '~> 3.1.1'
@@ -78,16 +102,3 @@ end
 group :development, :test do
   gem 'byebug'
 end
-
-# Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
-
-# Use unicorn as the app server
-# gem 'unicorn'
-
-# Use Capistrano for deployment
-# gem 'capistrano-rails', group: :development
-
-# Use debugger
-# gem 'debugger', group: [:development, :test]
-

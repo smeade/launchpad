@@ -30,6 +30,7 @@ This app demonstrates:
 
 Consider implementing support for:
 
+* Switching to Bourbon
 * Use FontAwesome instead of Glyphicons
 * Test Unit and FactoryGirl for testing
 * Guest user pattern
@@ -57,7 +58,6 @@ Consider implementing support for:
 * Procfile
 * Customize color scheme by Account
 * Other?
-
 
 Getting Started
 ---------------
