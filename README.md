@@ -23,6 +23,7 @@ This app demonstrates:
 * Geocoding with the geocoding gem
 * Sign in with GitHub (via OmniAuth)
 * Exception notifications via email
+* Forcing SSL over entire site
 
 **TODO:**
 
@@ -295,6 +296,12 @@ This [gem](https://github.com/smartinez87/exception_notification) provides notif
 * See posts.js.coffee for implementation details.
 * Note use of createSearchChoice so you can enter new values, not found by the select2 search.
 * The select field is being used to populate a string attribute. The `id` is being set to the string.
+
+### SSL
+
+* See [force_ssl](http://apidock.com/rails/ActionController/ForceSSL/ClassMethods/force_ssl).
+
+        force_ssl if: :ssl_configured? #, host:'www.sitewithvalidsslcert.com'
 
 ### Tests
 
