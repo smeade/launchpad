@@ -79,6 +79,9 @@ gem 'roo'
 # Integrate Select2 jQuery plugin into Rails pipeline
 gem 'select2-rails'
 
+# Use useragent to detect unsupported browsers
+gem 'useragent'
+
 group :production do
   gem 'rails_12factor'
 end

@@ -25,6 +25,7 @@ This app demonstrates:
 * Exception notifications via email
 * Forcing SSL over entire site
 * byebug for debugging
+* Browser version checks
 
 **TODO:**
 
@@ -195,6 +196,13 @@ To get Bootstrap fonts working with the Asset pipeline:
   * created templates in lib/templates
   * created stylesheets
 * The config.generators block seems to be required in application.rb
+
+### Browser Warnings
+
+* Use [useragent](https://github.com/josh/useragent) to parse and compares HTTP User Agents.
+* Create check_browser method in ApplicationController, then:
+
+        before_filter :check_browser
 
 ### DataTables
 
