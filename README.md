@@ -21,6 +21,7 @@ This app demonstrates:
 * DataTables
 * Working with JavaScript in Rails (via Comments)
 * Geocoding with the geocoding gem
+* Sign in with GitHub (via OmniAuth)
 
 **TODO:**
 
@@ -220,7 +221,7 @@ For example:
 
 ### Geocoder Notes
 
-* Geocoder is a complete geocoding solution for Ruby. With Rails it adds geocoding (by street or IP address), reverse geocoding (find street address based on given coordinates), and distance queries.
+Geocoder is a complete geocoding solution for Ruby. With Rails it adds geocoding (by street or IP address), reverse geocoding (find street address based on given coordinates), and distance queries.
 
 1. Add `latitude` and `longitude` columns to Model
 
@@ -240,6 +241,41 @@ For example:
 4. Find address by IP:
 
         Geocoder.search('75.70.68.188').first.data["region_name"]
+
+### Github Sign In
+
+* Use Omniauth for login via github
+
+        gem 'omniauth-github'
+
+1. Create an application in GitHub
+
+        https://github.com/settings/applications/new
+
+2. Add provider and uid to Users
+
+        class AddColumnsToUsers < ActiveRecord::Migration
+          def change
+            add_column :users, :provider, :string
+            add_column :users, :uid, :string
+          end
+        end
+
+3. Add a new OmniAuth provider to `devise.rb`
+
+        config.omniauth :github, 'APP_ID', 'APP_SECRET', scope: 'user,public_repo'
+
+4. Enable omniauthable module on User
+
+        :omniauthable, :omniauth_providers => [:github]
+
+5. Create `Users::OmniauthCallbacksController` with `github` method
+
+6. Add route
+
+        devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
+
+7. Implement the `from_omniauth` method in User
 
 ### Select2
 

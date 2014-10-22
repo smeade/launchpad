@@ -23,4 +23,8 @@ end
 #  last_sign_in_ip        :inet
 #  created_at             :datetime
 #  updated_at             :datetime
+#  provider               :string(255)
+#  uid                    :string(255)
+#  full_name              :string(255)
+#  nick_name              :string(255)
 #

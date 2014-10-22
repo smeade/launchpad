@@ -1,4 +1,4 @@
-class Comment < ActiveRecord::Base
+wclass Comment < ActiveRecord::Base
   belongs_to :post
   belongs_to :user
 
@@ -18,13 +18,14 @@ end
 #
 # Table name: comments
 #
-#  id         :integer          not null, primary key
-#  post_id    :integer
-#  user_id    :integer
-#  body       :text
-#  created_at :datetime
-#  updated_at :datetime
-#  latitude   :float
-#  longitude  :float
-#  ip_address :string(255)
+#  id          :integer          not null, primary key
+#  post_id     :integer
+#  user_id     :integer
+#  body        :text
+#  created_at  :datetime
+#  updated_at  :datetime
+#  latitude    :float
+#  longitude   :float
+#  ip_address  :string(255)
+#  region_name :string(255)
 #
