@@ -219,9 +219,9 @@ For example:
 
 * Read about required [test helpers](https://github.com/plataformatec/devise#test-helpers).
 
-### Geocoder Notes
+### Geocoder
 
-Geocoder is a complete geocoding solution for Ruby. With Rails it adds geocoding (by street or IP address), reverse geocoding (find street address based on given coordinates), and distance queries.
+[Geocoder](https://github.com/alexreisner/geocoder) is a complete geocoding solution for Ruby. With Rails it adds geocoding (by street or IP address), reverse geocoding (find street address based on given coordinates), and distance queries.
 
 1. Add `latitude` and `longitude` columns to Model
 
@@ -242,9 +242,9 @@ Geocoder is a complete geocoding solution for Ruby. With Rails it adds geocoding
 
         Geocoder.search('75.70.68.188').first.data["region_name"]
 
-### Github Sign In
+### GitHub Sign In
 
-* Use Omniauth for login via github
+* Use [omniauth-github](https://github.com/intridea/omniauth-github) gem
 
         gem 'omniauth-github'
 
