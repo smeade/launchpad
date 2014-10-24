@@ -2,8 +2,6 @@ source 'https://rubygems.org'
 
 ruby '2.1.3'
 
-
-
 # --------------------------------------------------------------------
 # Vanilla Rails gems
 # These come from initial Rails project creation

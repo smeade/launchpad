@@ -44,7 +44,7 @@ Consider implementing support for:
 * Tagging stuff
 * Searching stuff (algolia)
 * Dismissible, data-driven system announcements
-* Account management (invite users)
+* Account management (invite users, with subdomains)
 * CSV exports
 * RailsAdmin for back-end data management
 * Creating fake data with faker
@@ -151,6 +151,11 @@ Getting Started
 
 Additional Notes and Background
 -------------------------------
+
+### Versions
+
+* Ruby version 2.1.3
+* Rails version 4.1.6
 
 ### Ajax
 
