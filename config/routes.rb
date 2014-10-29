@@ -1,11 +1,15 @@
 Rails.application.routes.draw do
 
   root 'posts#index'
+
   resources :categories
   resources :comments
   resources :imports
   resources :posts
+
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
+
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

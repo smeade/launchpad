@@ -71,6 +71,9 @@ gem 'jquery-datatables-rails', '~> 2.2.1'
 # Use Omniauth for login via github
 gem 'omniauth-github'
 
+# Use RailsAdmin for back-end data management
+gem 'rails_admin', :git => 'https://github.com/sferik/rails_admin.git'
+
 # Use Roo to work with spreadsheets
 gem 'roo'
 

@@ -26,11 +26,14 @@ This app demonstrates:
 * Forcing SSL over entire site
 * byebug for debugging
 * Browser version checks
+* RailsAdmin for back-end data management
 
 **TODO:**
 
 Consider implementing support for:
 
+* Add CanCan for authorization
+* Auditing and versioning with PaperTrail
 * Switching to Bourbon
 * Use FontAwesome instead of Glyphicons
 * Test Unit and FactoryGirl for testing
@@ -46,7 +49,6 @@ Consider implementing support for:
 * Dismissible, data-driven system announcements
 * Account management (invite users, with subdomains)
 * CSV exports
-* RailsAdmin for back-end data management
 * Creating fake data with faker
 * Variants for mobile view support
 * Visitor Analytics (Google, NewRelic)
@@ -306,6 +308,16 @@ This [gem](https://github.com/smartinez87/exception_notification) provides notif
         devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 
 7. Implement the `from_omniauth` method in User
+
+### RailsAdmin
+
+RailsAdmin is a Rails engine that provides an easy-to-use interface for managing your data.
+
+* To install
+1. Bundle the gem. Use the github version: `gem 'rails_admin', :git => 'https://github.com/sferik/rails_admin.git'`.
+2. Run `rails g rails_admin:install`
+3. Provide a namespace for the routes when asked
+4. Start a server rails s and administer your data at /admin. (if you chose default namespace: /admin)
 
 ### Select2
 
