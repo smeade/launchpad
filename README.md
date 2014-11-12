@@ -332,7 +332,7 @@ RailsAdmin is a Rails engine that provides an easy-to-use interface for managing
 3. Provide a namespace for the routes when asked
 4. Start a server rails s and administer your data at /admin. (if you chose default namespace: /admin)
 
-### Rspec Rails
+### RSpec Rails
 
 See https://github.com/rspec/rspec-rails
 
@@ -344,8 +344,8 @@ See https://github.com/rspec/rspec-rails
 5. Run specs: `bundle exec rspec`
 
 * Generators
-`rails generate rspec:model product`
-`rails generate rspec:controller product`
+`rails generate rspec:model post`
+`rails generate rspec:controller post`
 
 ### Select2
 

@@ -6,13 +6,14 @@ class Post < ActiveRecord::Base
   default_scope  { order(:created_at => :desc) }
   validates :title, presence: true
 
-  def category_name
-    self.category.try(:name)
-  end
-
+  # given a name, create a new Category on the fly
   def category_name=(name)
     self.category = Category.find_or_create_by(name: name)
     self.save
+  end
+
+  def category_name
+    self.category.try(:name)
   end
 
 end
