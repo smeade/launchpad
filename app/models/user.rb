@@ -1,11 +1,31 @@
 class User < ActiveRecord::Base
+
+  # class methods from other classes or modules
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
          :omniauthable, :omniauth_providers => [:github]
 
+  # associations
+  belongs_to :account
   has_many :comments
+
+  # callbacks
+  after_create :set_account
+
+  def subdomain=(subdomain)
+    account = self.account || self.create_account(name: 'Your Account')
+    account.update_attributes(subdomain: subdomain)
+  end
+
+  def subdomain
+    self.account.try(:subdomain)
+  end
+
+  def set_account
+    account = self.account || self.create_account(name: 'Your Account')
+  end
 
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|

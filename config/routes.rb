@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
   root 'posts#index'
 
+  resources :accounts
   resources :categories
   resources :comments
   resources :imports

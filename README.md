@@ -27,11 +27,16 @@ This app demonstrates:
 * byebug for debugging
 * Browser version checks
 * RailsAdmin for back-end data management
+* RSpec and FactoryGirl for testing
 
 **TODO:**
 
 Consider implementing support for:
 
+* Guard for testing
+* rack-mini-profiler
+* Devise custom controllers
+* Scope to Account by subdomain
 * Add CanCan for authorization
 * Auditing and versioning with PaperTrail
 * Switching to Bourbon
@@ -168,6 +173,14 @@ See Comment views and controller, specificallY:
 * add `remote: true` to comments/_form.html.erb
 * add `format.js {}` to comments#create `respond_to` block
 * add `app/views/comments/create.js.erb`
+
+### Accounts
+
+* Account belongs to a User - the account owner. User belongs to an account - account members.
+* Accounts have a subdomain attribute. Requests to accountSubdomain.host.com will show only posts from that account's users.
+
+* When a user signs up, they get an Account. In the future, will add an account invite system.
+* For now, the Account is used as a way to demonstrate subdomain logic.
 
 ### Annotate
 
@@ -318,6 +331,21 @@ RailsAdmin is a Rails engine that provides an easy-to-use interface for managing
 2. Run `rails g rails_admin:install`
 3. Provide a namespace for the routes when asked
 4. Start a server rails s and administer your data at /admin. (if you chose default namespace: /admin)
+
+### Rspec Rails
+
+See https://github.com/rspec/rspec-rails
+
+* To install
+1. Add rspec-rails to both the :development and :test groups in the Gemfile:
+2. `bundle install`
+3. `rails generate rspec:install`
+4. create a binstub for the rspec command so it can be run via bin/rspec: `bundle binstubs rspec-core`
+5. Run specs: `bundle exec rspec`
+
+* Generators
+`rails generate rspec:model product`
+`rails generate rspec:controller product`
 
 ### Select2
 

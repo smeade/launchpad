@@ -105,4 +105,10 @@ end
 
 group :development, :test do
   gem 'byebug'
+  gem 'capybara-webkit'
+  gem 'database_cleaner'
+  gem 'factory_girl_rails'
+  gem 'rspec'
+  gem 'rspec-rails'
 end
+
