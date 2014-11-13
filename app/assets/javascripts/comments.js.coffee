@@ -27,5 +27,4 @@ $(document).on "page:change", ->
   # ----------------------------------
   $('[data-behavior~=confirm-delete]').hide()
   $( "[data-behavior~=actionable-list-items]" ).on "click", "[data-behavior~=delete]", ->
-    $(@).hide()
-    $(@).parent().find("[data-behavior~=confirm-delete]").show('slide', {direction: 'right'}, 100)
+    $(@).parent().find("[data-behavior~=confirm-delete]").toggle('slide', {direction: 'right'}, 100)

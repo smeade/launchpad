@@ -1,18 +1,9 @@
 <div class='comment' data-behavior="editable hoverable" data-id="<%= dom_id(comment) %>">
 
-  <% if comment.status == 'approved' %>
-    <%= button_to [:approve, comment], remote: true, class: "btn btn-link glyphicon glyphicon-ok-circle pull-right text-success" do %><% end %>
-  <% else %>
-    <%= button_to [:approve, comment], remote: true, class: "btn btn-link inactive glyphicon glyphicon-ok pull-right", data: { behavior: "show-on-hover" } do %><% end %>
-  <% end %>
-
-  <span class="btn btn-link glyphicon glyphicon-zoom-in pull-right inactive" data-behavior="show-details show-on-hover"></span>
-  <span class="btn btn-link glyphicon glyphicon-pencil pull-right inactive" data-behavior="edit show-on-hover"></span>
-
-  <span class="btn btn-link glyphicon glyphicon-remove pull-right inactive" data-behavior="delete show-on-hover"></span>
-  <%= link_to comment_path(comment), method: :delete, remote: true, data: { behavior: "confirm-delete" }, class: "btn btn-link text-danger pull-right"  do %>
-    Delete?
-  <% end %>
+  <%= render partial: 'shared/approval_button', locals: {approvable: comment} %>
+  <%= render partial: 'shared/details_button' %>
+  <%= render partial: 'shared/edit_button' %>
+  <%= render partial: 'shared/delete_button', locals: {deletable: comment} %>
 
   <div class="view">
     <p>

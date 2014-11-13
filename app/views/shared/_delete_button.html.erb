@@ -1,0 +1,7 @@
+<span class="btn btn-link pull-right inactive" data-behavior="delete show-on-hover">
+   <span class="glyphicon glyphicon-remove"></span>
+</span>
+
+<%= link_to deletable, method: :delete, remote: true, data: { behavior: "confirm-delete" }, class: "btn btn-link pull-right"  do %>
+  <span class="text-danger">Delete?</span>
+<% end %>
