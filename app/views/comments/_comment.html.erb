@@ -1,4 +1,4 @@
-<div id='comment-<%= comment.id %>' class='comment'>
+<div class='comment' data-behavior="editable hoverable" data-id="<%= dom_id(comment) %>">
   <small>
     <%= comment.created_at.to_s(:long) %>
     by
@@ -6,11 +6,23 @@
     at
     <%= comment.try(:region_name) %>
   </small>
-  <span class="btn btn-default btn-sm edit-comment glyphicon glyphicon-pencil pull-right"  style='display: none;'></span>
-  <p class='comment-body'>
-    <%= comment.body %>
-  </p>
-  <div class='comment-edit' style='display: none;'>
+
+  <% if comment.status == 'approved' %>
+    <%= button_to [:approve, comment], remote: true, class: "btn btn-success btn-sm glyphicon glyphicon-ok pull-right" do %><% end %>
+  <% else %>
+    <%= button_to [:approve, comment], remote: true, class: "btn btn-default btn-sm glyphicon glyphicon-ok pull-right", data: { behavior: "show-on-hover" } do %><% end %>
+  <% end %>
+
+  <span class="btn btn-default btn-sm glyphicon glyphicon-pencil pull-right" data-behavior="edit show-on-hover"></span>
+
+  <%= button_to comment_path(comment), method: :delete, data: { confirm: "Are you sure?", behavior: "show-on-hover" }, class: "btn btn-default btn-sm glyphicon glyphicon-remove pull-right" do %><% end %>
+
+  <div class="view">
+    <p>
+      <%= comment.body %>
+    </p>
+  </div>
+  <div class="edit">
     <%= form_for(comment, remote: true, :html => { :class => "form-horizontal" }) do |f| %>
       <%= f.text_area :body, id: "comment-body-#{comment.id}", :class => "form-control" %>
       <br/>

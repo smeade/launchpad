@@ -26,3 +26,30 @@ input[type="radio"], input[type="checkbox"] {
   font-url('glyphicons-halflings-regular.ttf') format('truetype'),
   font-url('glyphicons-halflings-regular.svg#glyphicons-halflingsregular') format('svg');
 }
+
+
+[data-behavior~=editable] {
+  .edit {
+    display: none;
+  }
+
+  &.editing {
+    .view {
+      display: none;
+    }
+    .edit {
+      display: block;
+    }
+  }
+}
+
+.comment {
+  border-bottom: 1px solid #e7e7e7;
+  margin-bottom: 1em;
+
+  &.editing {
+    .edit {
+      width: 506px;
+    }
+  }
+}

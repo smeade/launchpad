@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
-  before_action :set_comment, only: [:show, :edit, :update, :destroy]
+  before_action :set_comment, only: [:show, :edit, :update, :destroy, :approve]
 
   # GET /comments
   # GET /comments.json
@@ -19,6 +19,22 @@ class CommentsController < ApplicationController
 
   # GET /comments/1/edit
   def edit
+  end
+
+  # POST
+  def approve
+    @comment.status = @comment.status == 'approved' ? nil : 'approved'
+    respond_to do |format|
+      if @comment.save
+        format.html { redirect_to @comment, notice: 'Comment was successfully updated.' }
+        format.json { render :show, status: :ok, location: @comment }
+        format.js {}
+      else
+        format.html { render :edit }
+        format.json { render json: @comment.errors, status: :unprocessable_entity }
+        format.js {}
+      end
+    end
   end
 
   # POST /comments

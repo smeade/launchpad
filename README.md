@@ -33,6 +33,7 @@ This app demonstrates:
 
 Consider implementing support for:
 
+* Ajax status changes ('approved', 'question', 'rejected')
 * Guard for testing
 * rack-mini-profiler
 * Devise custom controllers

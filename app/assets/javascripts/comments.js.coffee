@@ -1,15 +1,16 @@
 $(document).on "page:change", ->
 
-  # -----------------
-  # Edit comments btn
-  # -----------------
-  $(".edit-comment").hide()
-  $(".comment-edit").hide()
-  $(".comment").on "mouseenter", ->
-    $(this).find('.edit-comment').show()
-  $(".comment").on "mouseleave", ->
-    $(this).find('.edit-comment').hide()
+  # ----------------------------------
+  # Show-On-Hover Action buttons
+  # ----------------------------------
+  $('[data-behavior~=show-on-hover]').hide()
+  $( "[data-behavior~=actionable-list-items]" ).on "mouseenter", "[data-behavior~=hoverable]", ->
+    $(@).find('[data-behavior~=show-on-hover]').show()
+  $( "[data-behavior~=actionable-list-items]" ).on "mouseleave", "[data-behavior~=hoverable]", ->
+    $(@).find('[data-behavior~=show-on-hover]').hide()
 
-  $(".edit-comment").on "click", ->
-    $(this).parent(".comment").find('.comment-body').hide()
-    $(this).parent(".comment").find('.comment-edit').show()
+  # ----------------------------------
+  # Edit button
+  # ----------------------------------
+  $( "[data-behavior~=actionable-list-items]" ).on "click", "[data-behavior~=edit]", ->
+    $(@).parent("[data-behavior~=editable]").toggleClass("editing")

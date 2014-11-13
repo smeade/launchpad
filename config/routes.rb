@@ -4,7 +4,11 @@ Rails.application.routes.draw do
 
   resources :accounts
   resources :categories
-  resources :comments
+  resources :comments do
+    member do
+      post 'approve'
+    end
+  end
   resources :imports
   resources :posts
 

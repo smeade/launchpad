@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141031153934) do
+ActiveRecord::Schema.define(version: 20141113011734) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,6 +42,7 @@ ActiveRecord::Schema.define(version: 20141031153934) do
     t.float    "longitude"
     t.string   "ip_address"
     t.string   "region_name"
+    t.string   "status"
   end
 
   add_index "comments", ["post_id"], name: "index_comments_on_post_id", using: :btree
