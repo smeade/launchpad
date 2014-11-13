@@ -28,6 +28,7 @@ This app demonstrates:
 * Browser version checks
 * RailsAdmin for back-end data management
 * RSpec and FactoryGirl for testing
+* Use of data-* instead of css id's and classes for js actions
 
 **TODO:**
 

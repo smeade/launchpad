@@ -8,7 +8,7 @@ class Comment < ActiveRecord::Base
   default_scope  { order(:created_at => :asc) }
 
   def set_region_name
-    if self.ip_address
+    if self.ip_address && self.region_name.blank?
       self.region_name = Geocoder.search(self.ip_address).first.data["region_name"]
     end
   end

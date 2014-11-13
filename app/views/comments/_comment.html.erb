@@ -15,7 +15,10 @@
 
   <span class="btn btn-default btn-sm glyphicon glyphicon-pencil pull-right" data-behavior="edit show-on-hover"></span>
 
-  <%= button_to comment_path(comment), method: :delete, data: { confirm: "Are you sure?", behavior: "show-on-hover" }, class: "btn btn-default btn-sm glyphicon glyphicon-remove pull-right" do %><% end %>
+  <span class="btn btn-default btn-sm glyphicon glyphicon-remove pull-right" data-behavior="delete show-on-hover"></span>
+  <%= button_to comment_path(comment), method: :delete, remote: true, data: { behavior: "confirm-delete" }, class: "btn btn-danger btn-sm glyphicon glyphicon-remove pull-right"  do %>
+    Delete?
+  <% end %>
 
   <div class="view">
     <p>
