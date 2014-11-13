@@ -1,0 +1,7 @@
+<small>
+  <%= comment.created_at.to_s(:long) %>
+  by
+  <%= comment.user.try(:email) %>
+  at
+  <%= comment.try(:region_name) %>
+</small>

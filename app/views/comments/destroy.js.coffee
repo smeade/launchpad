@@ -1,1 +1,1 @@
-$("[data-id=<%= dom_id(@comment) %>").fadeOut()
+$("#<%= dom_id(@comment) %>").fadeOut()

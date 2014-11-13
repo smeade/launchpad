@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   resources :comments do
     member do
       post 'approve'
+      get 'detail'
     end
   end
   resources :imports
