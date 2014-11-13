@@ -29,7 +29,24 @@ input[type="radio"], input[type="checkbox"] {
 
 
 [data-behavior~=editable] {
+  a:hover {
+    text-decoration: none;
+  }
+
+  .btn-link.inactive {
+    color: #999;
+  }
+
+  .btn-link:hover {
+    text-decoration: none;
+    color: #000;
+  }
+
   .edit {
+    display: none;
+  }
+
+  .details {
     display: none;
   }
 

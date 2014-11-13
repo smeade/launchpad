@@ -17,9 +17,15 @@ $(document).on "page:change", ->
     $(@).parent("[data-behavior~=editable]").toggleClass("editing")
 
   # ----------------------------------
+  # Details button
+  # ----------------------------------
+  $( "[data-behavior~=actionable-list-items]" ).on "click", "[data-behavior~=show-details]", ->
+    $(@).parent("[data-behavior~=editable]").find("[data-behavior~=details]").toggle()
+
+  # ----------------------------------
   # Delete button
   # ----------------------------------
   $('[data-behavior~=confirm-delete]').hide()
   $( "[data-behavior~=actionable-list-items]" ).on "click", "[data-behavior~=delete]", ->
     $(@).hide()
-    $(@).parent().find("[data-behavior~=confirm-delete]").show()
+    $(@).parent().find("[data-behavior~=confirm-delete]").show('slide', {direction: 'right'}, 100)

@@ -1,22 +1,16 @@
 <div class='comment' data-behavior="editable hoverable" data-id="<%= dom_id(comment) %>">
-  <small>
-    <%= comment.created_at.to_s(:long) %>
-    by
-    <%= comment.user.try(:email) %>
-    at
-    <%= comment.try(:region_name) %>
-  </small>
 
   <% if comment.status == 'approved' %>
-    <%= button_to [:approve, comment], remote: true, class: "btn btn-success btn-sm glyphicon glyphicon-ok pull-right" do %><% end %>
+    <%= button_to [:approve, comment], remote: true, class: "btn btn-link glyphicon glyphicon-ok-circle pull-right text-success" do %><% end %>
   <% else %>
-    <%= button_to [:approve, comment], remote: true, class: "btn btn-default btn-sm glyphicon glyphicon-ok pull-right", data: { behavior: "show-on-hover" } do %><% end %>
+    <%= button_to [:approve, comment], remote: true, class: "btn btn-link inactive glyphicon glyphicon-ok pull-right", data: { behavior: "show-on-hover" } do %><% end %>
   <% end %>
 
-  <span class="btn btn-default btn-sm glyphicon glyphicon-pencil pull-right" data-behavior="edit show-on-hover"></span>
+  <span class="btn btn-link glyphicon glyphicon-zoom-in pull-right inactive" data-behavior="show-details show-on-hover"></span>
+  <span class="btn btn-link glyphicon glyphicon-pencil pull-right inactive" data-behavior="edit show-on-hover"></span>
 
-  <span class="btn btn-default btn-sm glyphicon glyphicon-remove pull-right" data-behavior="delete show-on-hover"></span>
-  <%= button_to comment_path(comment), method: :delete, remote: true, data: { behavior: "confirm-delete" }, class: "btn btn-danger btn-sm glyphicon glyphicon-remove pull-right"  do %>
+  <span class="btn btn-link glyphicon glyphicon-remove pull-right inactive" data-behavior="delete show-on-hover"></span>
+  <%= link_to comment_path(comment), method: :delete, remote: true, data: { behavior: "confirm-delete" }, class: "btn btn-link text-danger pull-right"  do %>
     Delete?
   <% end %>
 
@@ -24,6 +18,15 @@
     <p>
       <%= comment.body %>
     </p>
+  </div>
+  <div class="details" data-behavior="details">
+    <small>
+      <%= comment.created_at.to_s(:long) %>
+      by
+      <%= comment.user.try(:email) %>
+      at
+      <%= comment.try(:region_name) %>
+    </small>
   </div>
   <div class="edit">
     <%= form_for(comment, remote: true, :html => { :class => "form-horizontal" }) do |f| %>
