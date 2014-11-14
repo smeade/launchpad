@@ -3,7 +3,6 @@ class Post < ActiveRecord::Base
   belongs_to :category
   has_many :comments
 
-  default_scope  { order(:created_at => :desc) }
   validates :title, presence: true
 
   # given a name, create a new Category on the fly

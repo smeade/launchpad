@@ -2,9 +2,12 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 $(document).on "page:change", ->
-  $('#categories').dataTable
+
+  $('#categories-table').dataTable
     processing: true
     serverSide: true
-    pageLength: 5
-    lengthMenu: [5, 25, 50, 100]
-    ajax: "/categories.json"
+    ajax: $('#categories-table').data('source')
+    pagingType: 'full_numbers'
+    # optional, if you want full pagination controls.
+    # Check dataTables documentation to learn more about
+    # available options.

@@ -1,4 +1,8 @@
 class Comment < ActiveRecord::Base
+
+  has_paper_trail
+
+  belongs_to :category
   belongs_to :post
   belongs_to :user
 
@@ -6,6 +10,16 @@ class Comment < ActiveRecord::Base
   after_validation :set_region_name
 
   default_scope  { order(:created_at => :asc) }
+
+  # given a name, create a new Category on the fly
+  def category_name=(name)
+    self.category = Category.find_or_create_by(name: name)
+    self.save
+  end
+
+  def category_name
+    self.category.try(:name)
+  end
 
   def set_region_name
     if self.ip_address && self.region_name.blank?

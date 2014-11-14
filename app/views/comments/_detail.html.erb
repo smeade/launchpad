@@ -1,7 +1,21 @@
 <small>
-  <%= comment.created_at.to_s(:long) %>
-  by
-  <%= comment.user.try(:email) %>
-  at
-  <%= comment.try(:region_name) %>
+  Current version created at: <%= comment.created_at.to_s(:long) %>
 </small>
+
+<h5>Previous versions</h5>
+
+<% comment.versions.reverse.each do |version| %>
+  <br/>
+  <% unless version.reify.blank? %>
+    <small><%= version.reify.updated_at.to_s(:long) %></small>
+    <br/>
+    in <%= version.reify.category.try(:name) %>
+    <br/>
+    <%= version.reify.body %>
+    <br/>
+    <%= version.reify.status %>
+    <br/>
+    <%= link_to "restore to this version", revert_comment_path(comment, version_id: version.id), method: :post, remote: true %>
+    <hr/>
+  <% end %>
+<% end %>

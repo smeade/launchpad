@@ -29,18 +29,19 @@ This app demonstrates:
 * RailsAdmin for back-end data management
 * RSpec and FactoryGirl for testing
 * Use of data-* instead of css id's and classes for js actions
+* Ajax status changes ('approved', 'question', 'rejected')
 
 **TODO:**
 
 Consider implementing support for:
 
-* Ajax status changes ('approved', 'question', 'rejected')
+* Auditing and versioning with PaperTrail
+* Turbolinks
 * Guard for testing
 * rack-mini-profiler
 * Devise custom controllers
 * Scope to Account by subdomain
 * Add CanCan for authorization
-* Auditing and versioning with PaperTrail
 * Switching to Bourbon
 * Use FontAwesome instead of Glyphicons
 * Test Unit and FactoryGirl for testing
@@ -323,6 +324,42 @@ This [gem](https://github.com/smartinez87/exception_notification) provides notif
         devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 
 7. Implement the `from_omniauth` method in User
+
+
+### PaperTrail
+
+"PaperTrail lets you track changes to your models' data. It's good for auditing or versioning. You can see how a model looked at any stage in its lifecycle, revert it to any version, and even undelete it after it's been destroyed."
+
+* To Install
+1. Add PaperTrail to your `Gemfile`.
+
+    `gem 'paper_trail', '~> 3.0.5'`
+
+2. Generate a migration which will add a `versions` table to your database.
+
+    `bundle exec rails generate paper_trail:install`
+
+3. Run the migration.
+
+    `bundle exec rake db:migrate`
+
+4. Add `has_paper_trail` to the models you want to track.
+
+* Use example:
+
+```
+      <%= content_tag_for(:tr, @product.versions.reverse) do |product_version| %>
+        <% unless product_version.reify.blank? %>
+          <td><%= link_to "restore to this version", revert_version_path(product_version), method: :post %></td>
+          <td><%= product_version.reify.updated_at %></td>
+          <td><%= product_version.reify.sku %></td>
+          <td><%= product_version.reify.name %></td>
+        <% end %>
+      <% end %>
+```
+
+[source](https://github.com/airblade/paper_trail#rails-3--4)
+
 
 ### RailsAdmin
 

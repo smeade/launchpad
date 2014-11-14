@@ -1,1 +1,2 @@
-$("#<%= dom_id(@comment) %>").find("[data-behavior~=detail]").html("<%= j(render partial: 'comments/detail', locals: {comment: @comment} ) %>").toggle()
+$("#<%= dom_id(@comment) %>").toggleClass("detailing")
+$("#<%= dom_id(@comment) %>").find("[data-behavior~=detail]").html("<%= j(render partial: 'comments/detail', locals: {comment: @comment} ) %>").slideToggle()

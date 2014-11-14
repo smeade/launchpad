@@ -69,9 +69,13 @@ gem 'kaminari'
 
 # Integrate DataTables into Rails pipeline
 gem 'jquery-datatables-rails', '~> 2.2.1'
+gem 'ajax-datatables-rails'
 
 # Use Omniauth for login via github
 gem 'omniauth-github'
+
+# Use PaperTrail for versioning
+gem 'paper_trail', '~> 3.0.5'
 
 # Use RailsAdmin for back-end data management
 gem 'rails_admin', :git => 'https://github.com/sferik/rails_admin.git'

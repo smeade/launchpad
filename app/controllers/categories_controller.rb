@@ -13,7 +13,7 @@ class CategoriesController < ApplicationController
         if params[:q]
           render :json => @categories.collect {|p| { id: p.name, text: p.name }}
         else
-          render json: CategoriesDatatable.new(view_context)
+          render json: CategoryDatatable.new(view_context)
         end
       }
     end

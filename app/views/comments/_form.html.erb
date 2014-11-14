@@ -1,6 +1,7 @@
 <%= form_for(@post.comments.new(), remote: true, :html => { :class => "form-horizontal" }) do |f| %>
   <%= f.hidden_field :post_id %>
   <%= f.text_area :body, :class => "form-control" %>
+  <%= f.text_field :category_name, {class: 'select2 ajax form-control', data: { source: categories_path }} %></dd>
   <br/>
   <%= f.submit :class => "btn btn-primary" %>
 <% end %>

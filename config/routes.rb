@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     member do
       post 'approve'
       get 'detail'
+      post 'revert'
     end
   end
   resources :imports

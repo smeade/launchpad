@@ -1,6 +1,9 @@
 class Category < ActiveRecord::Base
 
   has_many :posts
+  has_many :comments
+
+  default_scope { includes(:posts) }
 
 end
 

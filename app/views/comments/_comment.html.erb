@@ -6,18 +6,20 @@
   <%= render partial: 'shared/delete_button', locals: {deletable: comment} %>
 
   <div class="view">
+    <small>in <%= comment.category.try(:name) %></small>
     <p>
       <%= comment.body %>
     </p>
-  </div>
-  <div class="details" data-behavior="detail">
   </div>
   <div class="edit">
     <%= form_for(comment, remote: true, :html => { :class => "form-horizontal" }) do |f| %>
       <%= f.text_area :body, id: "comment-body-#{comment.id}", :class => "form-control" %>
       <br/>
+      <%= f.text_field :category_name, {class: 'select2 ajax form-control', data: { source: categories_path, current_id: comment.category ? comment.category.name : nil }} %>
       <%= f.submit :class => "btn btn-primary" %>
     <% end %>
+  </div>
+  <div class="details" data-behavior="detail">
   </div>
   <br/>
 </div>

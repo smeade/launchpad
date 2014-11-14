@@ -20,9 +20,7 @@ $(document).on "page:change", ->
   # Details button
   # ----------------------------------
   $( "[data-behavior~=actionable-list-items]" ).on "click", "[data-behavior~=show-detail]", ->
-    console.log($(this).attr('data-id'))
     $.get('/comments/' + $(this).attr('data-id') + '/detail')
-  #  $(@).parent("[data-behavior~=editable]").find("[data-behavior~=detail]").toggle()
 
   # ----------------------------------
   # Delete button

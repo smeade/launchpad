@@ -29,6 +29,9 @@ class CategoriesDatatable
     filtered_categories.page(page).per(per_page).map do |category|
       row = [
         category.name.html_safe,
+        { "posts" =>
+          { "title" => "TEST" }
+        },
         actions(category).html_safe
       ]
       row.compact
@@ -59,7 +62,8 @@ class CategoriesDatatable
 
   def columns
     cols = [
-      'name'
+      'name',
+      'posts_count'
     ]
     cols.compact
   end

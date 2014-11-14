@@ -10,4 +10,13 @@
   <h1>Posts</h1>
 </div>
 
-<%= render @posts %>
+<table id="posts-table", data-source="<%= posts_path(format: :json) %>" class="table table-striped table-bordered table-hover">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Category</th>
+    </tr>
+  </thead>
+  <tbody>
+  </tbody>
+</table>

@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
-  before_action :set_comment, only: [:show, :edit, :update, :destroy, :approve, :detail]
+  before_action :set_comment, only: [:show, :edit, :update, :destroy, :approve, :detail, :revert]
 
   # GET /comments
   # GET /comments.json
@@ -30,6 +30,24 @@ class CommentsController < ApplicationController
   # POST
   def approve
     @comment.status = @comment.status == 'approved' ? nil : 'approved'
+    respond_to do |format|
+      if @comment.save
+        format.html { redirect_to @comment, notice: 'Comment was successfully updated.' }
+        format.json { render :show, status: :ok, location: @comment }
+        format.js {}
+      else
+        format.html { render :edit }
+        format.json { render json: @comment.errors, status: :unprocessable_entity }
+        format.js {}
+      end
+    end
+  end
+
+  # POST
+  def revert
+    version = PaperTrail::Version.find(params[:version_id])
+    @comment = version.reify
+
     respond_to do |format|
       if @comment.save
         format.html { redirect_to @comment, notice: 'Comment was successfully updated.' }
@@ -97,6 +115,6 @@ class CommentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def comment_params
-      params.require(:comment).permit(:post_id, :user_id, :body)
+      params.require(:comment).permit(:post_id, :user_id, :body, :category_name)
     end
 end
