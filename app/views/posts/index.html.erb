@@ -13,11 +13,18 @@
 <table id="posts-table", data-source="<%= posts_path(format: :json) %>" class="table table-striped table-bordered table-hover">
   <thead>
     <tr>
+      <th>Created</th>
       <th>Title</th>
       <th>Category</th>
+      <th>Body</th>
       <th></th>
     </tr>
   </thead>
-  <tbody>
+  <tbody id='posts'>
+    <%= render @posts %>
   </tbody>
 </table>
+
+<span class='paginating'>
+  <%= render partial: 'pagination', locals: {posts: @posts} %>
+</span>

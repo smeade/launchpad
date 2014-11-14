@@ -21,13 +21,3 @@ $(document).on "page:change", ->
 
     select.select2 options
     return
-
-  $('#posts-table').dataTable
-    retrieve: true
-    processing: true
-    serverSide: true
-    ajax: $('#posts-table').data('source')
-    pagingType: 'full_numbers'
-    # optional, if you want full pagination controls.
-    # Check dataTables documentation to learn more about
-    # available options.

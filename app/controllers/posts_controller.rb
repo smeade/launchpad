@@ -5,8 +5,9 @@ class PostsController < ApplicationController
   # GET /posts.json
   def index
     respond_to do |format|
-      format.html
-      format.json { render json: PostDatatable.new(view_context) }
+      @posts = Post.order(:created_at).page params[:page]
+      format.html {}
+      format.js {}
     end
   end
 

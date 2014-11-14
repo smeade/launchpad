@@ -66,6 +66,7 @@ gem 'geocoder'
 
 # Use kaminari for pagination
 gem 'kaminari'
+gem 'bootstrap-kaminari-views'
 
 # Integrate DataTables into Rails pipeline
 gem 'jquery-datatables-rails', '~> 2.2.1'
