@@ -5,6 +5,8 @@ class PostDatatable < AjaxDatatablesRails::Base
   # include AjaxDatatablesRails::Extensions::WillPaginate
   # include AjaxDatatablesRails::Extensions::SimplePaginator
 
+  def_delegators :@view, :link_to, :h, :mailto, :post_path, :other_method
+
   def sortable_columns
     # list columns inside the Array in string dot notation.
     # Example: 'users.email'
@@ -31,7 +33,8 @@ class PostDatatable < AjaxDatatablesRails::Base
         # comma separated list of the values for each cell of a table row
         # example: record.attribute,
         record.title,
-        record.category.try(:name)
+        record.category.try(:name),
+        link_to('show', post_path(record))
       ]
     end
   end

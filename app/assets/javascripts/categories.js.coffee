@@ -4,6 +4,7 @@
 $(document).on "page:change", ->
 
   $('#categories-table').dataTable
+    retrieve: true
     processing: true
     serverSide: true
     ajax: $('#categories-table').data('source')

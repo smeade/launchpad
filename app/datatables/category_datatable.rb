@@ -5,6 +5,8 @@ class CategoryDatatable < AjaxDatatablesRails::Base
   # include AjaxDatatablesRails::Extensions::WillPaginate
   # include AjaxDatatablesRails::Extensions::SimplePaginator
 
+  def_delegators :@view, :link_to, :h, :mailto, :edit_category_path, :other_method
+
   def sortable_columns
     # list columns inside the Array in string dot notation.
     # Example: 'users.email'
@@ -29,7 +31,8 @@ class CategoryDatatable < AjaxDatatablesRails::Base
         # comma separated list of the values for each cell of a table row
         # example: record.attribute,
         record.name,
-        record.posts.count
+        record.posts.count,
+        link_to('edit', edit_category_path(record))
       ]
     end
   end

@@ -23,6 +23,7 @@ $(document).on "page:change", ->
     return
 
   $('#posts-table').dataTable
+    retrieve: true
     processing: true
     serverSide: true
     ajax: $('#posts-table').data('source')
