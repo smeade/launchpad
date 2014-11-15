@@ -1,5 +1,7 @@
 <div id="<%= dom_id(comment) %>" class='comment' data-behavior="editable hoverable">
 
+  <div id='<%= dom_id(comment) %>-alert'></div>
+
   <%= render partial: 'shared/approval_button', locals: {approvable: comment} %>
   <%= render partial: 'shared/details_button', locals: {detailable: comment} %>
   <%= render partial: 'shared/edit_button' %>
@@ -11,6 +13,7 @@
       <%= comment.body %>
     </p>
   </div>
+
   <div class="edit">
     <%= form_for(comment, remote: true, :html => { :class => "form-horizontal" }) do |f| %>
       <%= f.text_area :body, id: "comment-body-#{comment.id}", :class => "form-control" %>
