@@ -1,33 +1,41 @@
-<h4>Edit</h4>
-<%= form_for(comment, remote: true, :html => { :class => "form-inline" }) do |f| %>
-  <div class="form-group">
-    <div class="input-group">
-      <%= f.text_field :body, id: "comment-body-#{comment.id}", :class => "form-control", :width => '200px;', data: { behavior: 'value-settable'} %>
+<div id="<%= dom_id(comment) %>-detail">
+  <h4>Edit</h4>
+  <%= form_for(comment, remote: true, :html => { :class => "form-inline" }) do |f| %>
+    <div class="form-group">
+      <div class="input-group">
+        <%= f.text_field :body, id: "comment-body-#{comment.id}", :class => "form-control", :width => '200px;', data: { behavior: 'value-settable'} %>
+      </div>
     </div>
-  </div>
-  <%= f.submit :class => "btn btn-primary" %>
-<% end %>
-
-<h4>Similar</h4>
-
-<% @similar.each do |similar| %>
-  <%= link_to similar.body, '#', data: { behavior: 'set-value'}  %> |
-<% end %>
-
-<h4>Previous versions</h4>
-
-<% comment.versions.reverse.each do |version| %>
-  <br/>
-  <% unless version.reify.blank? %>
-    <small><%= version.reify.updated_at.to_s(:long) %></small>
-    <br/>
-    in <%= version.reify.category.try(:name) %>
-    <br/>
-    <%= version.reify.body %>
-    <br/>
-    <%= version.reify.status %>
-    <br/>
-    <%= link_to "restore to this version", revert_comment_path(comment, version_id: version.id), method: :post, remote: true %>
-    <hr/>
+    <%= f.submit :class => "btn btn-primary" %>
   <% end %>
-<% end %>
+
+  <h4>Similar</h4>
+
+  <% @similar.each do |similar| %>
+    <%= link_to similar.body, '#', data: { behavior: 'set-value'}  %> |
+  <% end %>
+
+  <h4>Details</h4>
+
+  <% @similar.each do |similar| %>
+    <%= link_to similar.body, '#', data: { behavior: 'launch-modal', id: similar.id }  %> |
+  <% end %>
+
+  <h4>Previous versions</h4>
+
+  <% comment.versions.reverse.each do |version| %>
+    <br/>
+    <% unless version.reify.blank? %>
+      <small><%= version.reify.updated_at.to_s(:long) %></small>
+      <br/>
+      in <%= version.reify.category.try(:name) %>
+      <br/>
+      <%= version.reify.body %>
+      <br/>
+      <%= version.reify.status %>
+      <br/>
+      <%= link_to "restore to this version", revert_comment_path(comment, version_id: version.id), method: :post, remote: true %>
+      <hr/>
+    <% end %>
+  <% end %>
+</div>

@@ -35,3 +35,10 @@ $(document).on "page:change", ->
   $( "[data-behavior~=actionable-list-items]" ).on "click", "[data-behavior~=set-value]", (e) ->
     $(@).parent().find("[data-behavior~=value-settable]").val($(@).text())
     e.preventDefault()
+
+  # -------------------------------------
+  # Launch modal
+  # -------------------------------------
+  $( "[data-behavior~=actionable-list-items]" ).on "click", "[data-behavior~=launch-modal]", (e) ->
+    $.get('/comments/' + $(this).attr('data-id') + '.js?modal=true')
+    e.preventDefault()

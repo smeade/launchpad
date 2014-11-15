@@ -10,6 +10,10 @@ class CommentsController < ApplicationController
   # GET /comments/1
   # GET /comments/1.json
   def show
+    respond_to do |format|
+      format.html {}
+      format.js {}
+    end
   end
 
   def detail

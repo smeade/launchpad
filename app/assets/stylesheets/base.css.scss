@@ -33,6 +33,11 @@ input[type="radio"], input[type="checkbox"] {
   font-url('glyphicons-halflings-regular.svg#glyphicons-halflingsregular') format('svg');
 }
 
+/*
+ * Editable sections
+ * Support for:
+ * - toggle editing
+ */
 
 [data-behavior~=editable] {
   a:hover {
@@ -78,4 +83,17 @@ input[type="radio"], input[type="checkbox"] {
       width: 506px;
     }
   }
+}
+
+/*
+ * Bootstrap patches
+ */
+
+/* http://stackoverflow.com/questions/19960162/bootstrap-3-modal-fires-and-causes-page-to-shift-to-the-left-momentarily-brows */
+.modal {
+  overflow-y: auto;
+}
+
+.modal-open {
+  overflow: auto;
 }
