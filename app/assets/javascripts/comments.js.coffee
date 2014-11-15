@@ -28,3 +28,10 @@ $(document).on "page:change", ->
   $('[data-behavior~=confirm-delete]').hide()
   $( "[data-behavior~=actionable-list-items]" ).on "click", "[data-behavior~=delete]", ->
     $(@).parent().find("[data-behavior~=confirm-delete]").toggle('slide', {direction: 'right'}, 100)
+
+  # -------------------------------------
+  # Set field by clicking on suggestions
+  # -------------------------------------
+  $( "[data-behavior~=actionable-list-items]" ).on "click", "[data-behavior~=set-value]", (e) ->
+    $(@).parent().find("[data-behavior~=value-settable]").val($(@).text())
+    e.preventDefault()

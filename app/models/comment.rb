@@ -1,6 +1,7 @@
 class Comment < ActiveRecord::Base
 
   has_paper_trail
+  searchkick
 
   belongs_to :category
   belongs_to :post

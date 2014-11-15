@@ -64,6 +64,14 @@ gem 'exception_notification'
 # Use goecoder to find location by ip address
 gem 'geocoder'
 
+# Use ElastiSearch for search
+# See: http://www.sitepoint.com/full-text-search-rails-elasticsearch/
+gem 'elasticsearch-model'
+gem 'elasticsearch-rails'
+
+# Use SearchKick for intelligent search
+gem 'searchkick'
+
 # Use kaminari for pagination
 gem 'kaminari'
 gem 'bootstrap-kaminari-views'

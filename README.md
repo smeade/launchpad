@@ -30,6 +30,7 @@ This app demonstrates:
 * RSpec and FactoryGirl for testing
 * Use of data-* instead of css id's and classes for js actions
 * Ajax status changes ('approved', 'question', 'rejected')
+* Elasticsearch and Searchkick
 
 **TODO:**
 
@@ -257,6 +258,16 @@ For example:
 
 * Read about required [test helpers](https://github.com/plataformatec/devise#test-helpers).
 
+
+### Elasticsearch and Searchkick
+
+[Elasticsearch](https://github.com/elasticsearch/elasticsearch) is an awesome "Open Source, Distributed, RESTful Search Engine http://elasticsearch.org".
+[elasticsearch-rails](https://github.com/elasticsearch/elasticsearch-rails) contains various Ruby and Rails integrations for Elasticsearch, including ActiveModel integration with adapters for ActiveRecord and Convenience model methods such as search.
+[Searchkick](https://github.com/ankane/searchkick) sits on top of elasticsearch-rails and learns what your users are looking for.
+
+See: http://www.elasticsearch.org/guide/en/elasticsearch/client/ruby-api/current/_ruby_on_rails.html
+
+
 ### Exception Notification
 
 This [gem](https://github.com/smartinez87/exception_notification) provides notifications when errors occur.
@@ -266,6 +277,7 @@ This [gem](https://github.com/smartinez87/exception_notification) provides notif
         gem 'exception_notification'
 
 2. Configure to use `config.middleware.use ExceptionNotifier`. See `development.rb` and `production.rb`.
+
 
 ### Geocoder
 

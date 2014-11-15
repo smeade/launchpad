@@ -13,6 +13,7 @@ class CommentsController < ApplicationController
   end
 
   def detail
+    @similar = Comment.search @comment.body, operator: "or"
     respond_to do |format|
       format.js {}
     end

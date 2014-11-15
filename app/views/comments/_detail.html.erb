@@ -1,8 +1,20 @@
-<small>
-  Current version created at: <%= comment.created_at.to_s(:long) %>
-</small>
+<h4>Edit</h4>
+<%= form_for(comment, remote: true, :html => { :class => "form-inline" }) do |f| %>
+  <div class="form-group">
+    <div class="input-group">
+      <%= f.text_field :body, id: "comment-body-#{comment.id}", :class => "form-control", :width => '200px;', data: { behavior: 'value-settable'} %>
+    </div>
+  </div>
+  <%= f.submit :class => "btn btn-primary" %>
+<% end %>
 
-<h5>Previous versions</h5>
+<h4>Similar</h4>
+
+<% @similar.each do |similar| %>
+  <%= link_to similar.body, '#', data: { behavior: 'set-value'}  %> |
+<% end %>
+
+<h4>Previous versions</h4>
 
 <% comment.versions.reverse.each do |version| %>
   <br/>

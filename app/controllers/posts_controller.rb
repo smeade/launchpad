@@ -5,7 +5,11 @@ class PostsController < ApplicationController
   # GET /posts.json
   def index
     respond_to do |format|
-      @posts = Post.order(:created_at).page params[:page]
+      if params[:q].blank?
+        @posts = Post.order(:created_at).page params[:page]
+      else
+        @posts = Post.search params[:q]
+      end
       format.html {}
       format.js {}
     end
