@@ -57,7 +57,7 @@ class CommentsController < ApplicationController
       if @comment.save
         format.html { redirect_to @comment, notice: 'Comment was successfully updated.' }
         format.json { render :show, status: :ok, location: @comment }
-        format.js { @notice = "Reverted" }
+        format.js { @notice = "Restored to #{@comment.body}" }
       else
         format.html { render :edit }
         format.json { render json: @comment.errors, status: :unprocessable_entity }
@@ -89,10 +89,13 @@ class CommentsController < ApplicationController
   # PATCH/PUT /comments/1.json
   def update
     respond_to do |format|
+      prev_body = @comment.body
       if @comment.update(comment_params)
         format.html { redirect_to @comment, notice: 'Comment was successfully updated.' }
         format.json { render :show, status: :ok, location: @comment }
-        format.js { @notice = "Updated" }
+        format.js {
+          @notice = "Updated from #{prev_body} to #{@comment.body}"
+        }
       else
         format.html { render :edit }
         format.json { render json: @comment.errors, status: :unprocessable_entity }

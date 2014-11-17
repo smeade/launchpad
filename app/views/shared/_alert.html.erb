@@ -1,4 +1,4 @@
-<div class="alert alert-warning alert-dismissible" role="alert">
+<div class="alert alert-success alert-dismissible" role="alert">
   <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
     <%= alert_message %>
     <%= link_to 'UNDO', revert_comment_path(@comment, version_id: @comment.versions.last.id), method: :post, remote: true %>
