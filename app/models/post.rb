@@ -1,27 +1,6 @@
 class Post < ActiveRecord::Base
 
-  include Elasticsearch::Model
-  include Elasticsearch::Model::Callbacks
-
-  def self.search(query)
-    __elasticsearch__.search(
-      {
-        query: {
-          multi_match: {
-            query: query,
-            fields: ['title^10', 'body']
-          }
-        }
-      }
-    )
-  end
-
-  settings index: { number_of_shards: 1 } do
-    mappings dynamic: 'false' do
-      indexes :title, analyzer: 'english'
-      indexes :body, analyzer: 'english'
-    end
-  end
+  searchkick highlight: [:text]
 
   paginates_per 5
 
@@ -29,6 +8,20 @@ class Post < ActiveRecord::Base
   has_many :comments
 
   validates :title, presence: true
+
+  # eager load associations on indexing
+  scope :search_import, -> { includes(:comments) }
+
+  def search_data
+    {
+      text: title_with_comments_body
+    }
+  end
+
+  def title_with_comments_body
+    comments_body = comments.map(&:body).join("|")
+    "#{self.title} | #{comments_body}"
+  end
 
   # given a name, create a new Category on the fly
   def category_name=(name)
@@ -40,16 +33,15 @@ class Post < ActiveRecord::Base
     self.category.try(:name)
   end
 
-  # Delete the previous index in Elasticsearch
-  Post.__elasticsearch__.client.indices.delete index: Post.index_name rescue nil
+  # Format details from searchkick
+  def self.search_highlighted_details(posts)
+    highlighted_details = []
+    posts.with_details.each do |post, details|
+      highlighted_details << details[:highlight][:text]
+    end
+    highlighted_details
+  end
 
-  # Create the new index with the new mapping
-  Post.__elasticsearch__.client.indices.create \
-    index: Post.index_name,
-    body: { settings: Post.settings.to_hash, mappings: Post.mappings.to_hash }
-
-  # Index all article records from the DB to Elasticsearch
-  Post.import
 end
 
 # == Schema Information

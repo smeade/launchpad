@@ -8,7 +8,7 @@ class PostsController < ApplicationController
       if params[:q].blank?
         @posts = Post.order(:created_at).page params[:page]
       else
-        @posts = Post.search params[:q]
+        @posts = Post.search(params[:q], fields: [:text], highlight: {tag: "<strong>"})
       end
       format.html {}
       format.js {}
