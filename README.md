@@ -31,6 +31,7 @@ This app demonstrates:
 * Use of data-* instead of css id's and classes for js actions
 * Ajax status changes ('approved', 'question', 'rejected')
 * Elasticsearch and Searchkick
+* Tooltips
 
 **TODO:**
 
@@ -425,6 +426,21 @@ To run the test suite:
 * Remember that with TurboLinks, for JavaScript to load you should not use `$(document).ready`, but use:
 
         $(document).on "page:change", ->
+
+
+### Tooltips
+
+Implemented Bootstrap's [tooltips.js](http://getbootstrap.com/javascript/#tooltips).
+
+* For performance reasons, the Tooltip and Popover data-apis are opt-in, meaning you must initialize them yourself.
+
+        $('[data-toggle="tooltip"]').tooltip()
+
+* All that is needed is to set data- elements.
+
+        data-toggle="tooltip" data-placement="top" title="Delete"
+
+        data: {toggle: "tooltip", placement: "top", title: "Remove approval" }
 
 
 License

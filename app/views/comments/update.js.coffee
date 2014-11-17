@@ -4,3 +4,4 @@ $("#<%= dom_id(@comment) %>-alert").append( "<%= j( render partial: 'shared/aler
 <% end %>
 $('[data-behavior~=show-on-hover]').hide()
 $('[data-behavior~=confirm-delete]').hide()
+$('[data-toggle="tooltip"]').tooltip()

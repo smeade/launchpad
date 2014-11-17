@@ -1,9 +1,9 @@
 <% if approvable.status == 'approved' %>
-  <%= button_to [:approve, approvable], remote: true, class: "btn btn-link pull-right" do %>
+  <%= button_to [:approve, approvable], remote: true, class: "btn btn-link pull-right", data: {toggle: "tooltip", placement: "top", title: "Remove approval" } do %>
     <span class="glyphicon glyphicon-ok text-success"></span>
   <% end %>
 <% else %>
-  <%= button_to [:approve, approvable], remote: true, class: "btn btn-link inactive pull-right", data: { behavior: "show-on-hover" } do %>
+  <%= button_to [:approve, approvable], remote: true, class: "btn btn-link inactive pull-right", data: { behavior: "show-on-hover", toggle: "tooltip", placement: "top", title: "Approve this comment"  } do %>
     <span class="glyphicon glyphicon-ok"></span>
   <% end %>
 <% end %>

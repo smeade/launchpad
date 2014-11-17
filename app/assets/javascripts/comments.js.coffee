@@ -1,6 +1,11 @@
 $(document).on "page:change", ->
 
   # ----------------------------------
+  # Activate tooltips
+  # ----------------------------------
+  $('[data-toggle="tooltip"]').tooltip()
+
+  # ----------------------------------
   # Show-On-Hover Action buttons
   # ----------------------------------
   $('[data-behavior~=show-on-hover]').hide()
