@@ -29,20 +29,21 @@ This app demonstrates:
 * RailsAdmin for back-end data management
 * RSpec and FactoryGirl for testing
 * Use of data-* instead of css id's and classes for js actions
+* Scope to Account by subdomain
 * Ajax status changes ('approved', 'question', 'rejected')
+* Auditing and versioning with PaperTrail
 * Elasticsearch and Searchkick
 * Tooltips
+* Caching
+* Turbolinks
 
 **TODO:**
 
 Consider implementing support for:
 
-* Auditing and versioning with PaperTrail
-* Turbolinks
 * Guard for testing
 * rack-mini-profiler
 * Devise custom controllers
-* Scope to Account by subdomain
 * Add CanCan for authorization
 * Switching to Bourbon
 * Use FontAwesome instead of Glyphicons
@@ -228,6 +229,31 @@ To get Bootstrap fonts working with the Asset pipeline:
 * Create check_browser method in ApplicationController, then:
 
         before_filter :check_browser
+
+## Rails Caching
+
+Implements [Rails caching](http://guides.rubyonrails.org/caching_with_rails.html).
+
+* Simply wrap view fragments with `cache`
+
+        <%= cache comment do %>
+        <% end %>
+
+* Uses key-based cache expiration.
+
+    Note the use of `touch: true` to ensure that updates to child objects create a new cache key
+
+        class Comment < ActiveRecord::Base
+          belongs_to :post, touch: true
+        end
+
+* To use caching in local dev, enable in development.rb:
+
+        config.action_controller.perform_caching = true
+
+* To use caching on Heroku:
+
+        heroku addons:add memcachier
 
 ### DataTables
 

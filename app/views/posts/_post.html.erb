@@ -1,7 +1,9 @@
-<tr>
-  <td><%= post.created_at.to_s(:long) %></td>
-  <td><%= link_to post.title, post %></td>
-  <td><%= post.category.try(:name) %></td>
-  <td><%= truncate(post.body, length: 200) %></td>
-  <td></td>
-</tr>
+<%= cache post do %>
+  <tr>
+    <td><%= post.created_at.to_s(:long) %></td>
+    <td><%= link_to post.title, post %></td>
+    <td><%= post.category.try(:name) %></td>
+    <td><%= truncate(post.body, length: 200) %></td>
+    <td></td>
+  </tr>
+<% end %>

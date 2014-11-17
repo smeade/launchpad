@@ -3,9 +3,9 @@ class Comment < ActiveRecord::Base
   has_paper_trail
   searchkick
 
-  belongs_to :category
-  belongs_to :post
-  belongs_to :user
+  belongs_to :category, touch: true
+  belongs_to :post, touch: true
+  belongs_to :user, touch: true
 
   geocoded_by :ip_address
   after_validation :set_region_name
